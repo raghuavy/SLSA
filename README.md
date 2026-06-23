@@ -1,0 +1,2 @@
+# SLSA
+UMN-SLSA website

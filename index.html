@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Lankan Students' Association — University of Minnesota</title>
+<meta name="description" content="The Sri Lankan Students' Association (SLSA) at the University of Minnesota — celebrating the food, language, music and warmth of Sri Lanka on campus. Events, board, and how to join.">
+<meta property="og:title" content="Sri Lankan Students' Association — UMN">
+<meta property="og:description" content="A home away from home for Sri Lankan students and friends of the island at the University of Minnesota.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Mulish:wght@400;500;600;700;800&family=Noto+Serif+Sinhala:wght@600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================== TOKENS ============================== */
+:root{
+  --cream:#fbf3e1; --cream-deep:#f4e8cd; --paper:#fffaf1;
+  --crimson:#8a1a1a; --crimson-2:#761414; --crimson-deep:#4f0e10;
+  --gold:#caa24a; --gold-bright:#edc56b; --gold-deep:#9a6c1c;
+  --saffron:#d9701f; --leaf:#2f7d4f; --brass:#977c3e;
+  --ink:#34201a; --ink-soft:#6e5347; --line:#e7d6b3;
+  --shadow:32px 36px 60px -34px rgba(60,18,10,.45);
+  --shadow-sm:0 14px 30px -18px rgba(60,18,10,.35);
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:'Mulish', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --sinhala:'Noto Serif Sinhala', var(--serif);
+  --wrap:1180px; --pad:clamp(1.25rem, 5vw, 3rem); --r:18px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:84px; -webkit-text-size-adjust:100%}
+body{margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans);
+  font-size:clamp(1rem,.96rem + .2vw,1.075rem); line-height:1.72; font-weight:400;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font-family:inherit; cursor:pointer; border:0; background:none; color:inherit}
+h1,h2,h3,h4{margin:0; font-family:var(--serif); font-weight:700; line-height:1.04; letter-spacing:.005em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold-bright); outline-offset:3px; border-radius:6px}
+.skip{position:absolute; left:-9999px; top:0; background:var(--gold-bright); color:var(--crimson-deep);
+  padding:.7em 1.1em; border-radius:0 0 10px 0; font-weight:800; z-index:200}
+.skip:focus{left:0}
+
+/* ============================== UTILITIES ============================== */
+.wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad)}
+.section{padding-block:clamp(4rem,9vw,7.5rem)}
+.eyebrow{display:inline-block; font-family:var(--sans); font-weight:800; font-size:.74rem;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:1rem}
+.section-head{max-width:64ch}
+.section-head h2{font-size:clamp(2.1rem,5vw,3.5rem); color:var(--crimson)}
+.section-head .lead{margin-top:1.1rem; color:var(--ink-soft); font-size:1.1rem; max-width:58ch}
+
+.band{height:30px; width:100%; background-repeat:repeat-x; background-position:center; opacity:.95;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2760%27%20height%3D%2730%27%20viewBox%3D%270%200%2060%2030%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d9a23f%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M0%2023%20H60%27%2F%3E%3Cpath%20d%3D%27M30%2023%20C22%2014%2024%205%2030%203%20C36%205%2038%2014%2030%2023%20Z%27%2F%3E%3Cpath%20d%3D%27M30%2021%20C20%2018%2013%2013%207%2020%27%2F%3E%3Cpath%20d%3D%27M30%2021%20C40%2018%2047%2013%2053%2020%27%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2730%27%20cy%3D%2710%27%20r%3D%271.7%27%20fill%3D%27%23d9a23f%27%2F%3E%3C%2Fsvg%3E")}
+.lotus{width:100%; height:100%; color:var(--gold)}
+
+/* ============================== BUTTONS ============================== */
+.btn{display:inline-flex; align-items:center; gap:.5em; font-family:var(--sans); font-weight:800;
+  font-size:.95rem; letter-spacing:.01em; padding:.82em 1.5em; border-radius:999px;
+  transition:transform .18s ease, background .2s ease, color .2s ease, box-shadow .2s ease; white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn .arr{transition:transform .2s ease}
+.btn:hover .arr{transform:translateX(3px)}
+.btn-gold{background:var(--gold-bright); color:var(--crimson-deep); box-shadow:0 12px 26px -14px rgba(0,0,0,.5)}
+.btn-gold:hover{background:#f5d585; transform:translateY(-2px)}
+.btn-outline{background:transparent; color:var(--gold-bright); box-shadow:inset 0 0 0 1.6px rgba(237,197,107,.7)}
+.btn-outline:hover{background:rgba(237,197,107,.14); color:#f5d585; transform:translateY(-2px)}
+.btn-crimson{background:var(--crimson); color:#fff5e6}
+.btn-crimson:hover{background:var(--crimson-2); transform:translateY(-2px)}
+.btn-ghost{background:transparent; color:var(--crimson); box-shadow:inset 0 0 0 1.6px var(--line)}
+.btn-ghost:hover{background:var(--cream-deep)}
+.btn-sm{padding:.62em 1.15em; font-size:.86rem}
+
+/* ============================== NAV ============================== */
+.nav{position:fixed; inset:0 0 auto 0; z-index:100; padding-block:.55rem;
+  transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+  background:linear-gradient(180deg, rgba(79,14,16,.55), rgba(79,14,16,0))}
+.nav.scrolled{background:var(--crimson-deep); box-shadow:0 10px 30px -16px rgba(0,0,0,.6); padding-block:.35rem}
+.nav-inner{max-width:1280px; margin-inline:auto; padding-inline:var(--pad); display:flex; align-items:center; gap:1rem}
+.brand{display:flex; align-items:center; gap:.65rem; color:#fff4e2; padding:.35rem 0}
+.brand-mark{width:34px; height:30px; flex:none; color:var(--gold-bright)}
+.brand-text{display:flex; flex-direction:column; line-height:1}
+.brand-text b{font-family:var(--serif); font-weight:700; font-size:1.28rem; letter-spacing:.01em}
+.brand-text span{font-family:var(--sans); font-weight:700; font-size:.6rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--gold-bright); margin-top:3px}
+.nav-spacer{flex:1}
+.nav-links{display:flex; align-items:center; gap:.3rem}
+.nav-links a{color:#f3e2cd; font-weight:600; font-size:.93rem; padding:.5rem .8rem; border-radius:8px; transition:color .15s, background .15s}
+.nav-links a:hover{color:#fff; background:rgba(255,255,255,.08)}
+.nav-ig{display:inline-flex; color:var(--gold-bright)!important; padding:.5rem!important}
+.nav-burger{display:none; width:44px; height:44px; border-radius:10px; color:#fff4e2; align-items:center; justify-content:center}
+.nav-burger span{display:block; width:22px; height:2px; background:currentColor; position:relative; transition:transform .25s, opacity .2s}
+.nav-burger span::before,.nav-burger span::after{content:""; position:absolute; left:0; width:22px; height:2px; background:currentColor; transition:transform .25s}
+.nav-burger span::before{top:-7px}.nav-burger span::after{top:7px}
+.nav.menu-open .nav-burger span{background:transparent}
+.nav.menu-open .nav-burger span::before{transform:translateY(7px) rotate(45deg)}
+.nav.menu-open .nav-burger span::after{transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:920px){
+  .nav-burger{display:inline-flex}
+  .nav-links{position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:.15rem;
+    background:var(--crimson-deep); padding:.6rem var(--pad) 1.2rem; transform:translateY(-12px); opacity:0; pointer-events:none;
+    transition:transform .25s ease, opacity .25s ease; box-shadow:0 18px 30px -18px rgba(0,0,0,.6)}
+  .nav.menu-open .nav-links{transform:none; opacity:1; pointer-events:auto}
+  .nav-links a{padding:.85rem .6rem; font-size:1rem; border-bottom:1px solid rgba(255,255,255,.07)}
+  .nav-links .btn{margin-top:.7rem; justify-content:center}
+  .nav-ig{justify-content:flex-start}
+}
+
+/* ============================== HERO ============================== */
+.hero{position:relative; color:#fdf3e0; text-align:center; overflow:hidden; padding:clamp(8rem,16vw,11rem) var(--pad) 0;
+  background:radial-gradient(120% 90% at 50% -10%, rgba(216,162,63,.22), transparent 55%),
+    radial-gradient(80% 60% at 85% 110%, rgba(216,112,31,.18), transparent 60%),
+    linear-gradient(165deg, #8f1c1c 0%, #761414 55%, #5d1012 100%)}
+.hero-lotus{position:absolute; left:50%; top:42%; transform:translate(-50%,-50%); width:min(620px,92vw);
+  aspect-ratio:64/50; color:rgba(237,197,107,.13); pointer-events:none}
+.hero-inner{position:relative; max-width:880px; margin-inline:auto; padding-bottom:clamp(3rem,7vw,5rem)}
+.hero .eyebrow{color:var(--gold-bright)}
+.hero-greet{font-family:var(--sinhala); font-size:clamp(1.6rem,4vw,2.4rem); color:var(--gold-bright); line-height:1; margin-bottom:.3rem}
+.hero-greet small{display:block; font-family:var(--sans); font-weight:700; font-size:.7rem; letter-spacing:.34em;
+  text-transform:uppercase; color:#e8cfa8; margin-top:.7rem}
+.hero h1{font-size:clamp(2.7rem,7.5vw,5.6rem); margin:.7rem 0 0; letter-spacing:-.01em}
+.hero h1 .em{color:var(--gold-bright); font-style:italic; font-weight:600}
+.hero-tag{margin:1.5rem auto 0; max-width:46ch; font-size:1.16rem; color:#f1ddc2; line-height:1.66}
+.hero-cta{display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; margin-top:2.2rem}
+.hero-loc{margin-top:2.4rem; font-size:.82rem; letter-spacing:.04em; color:#e2c79f; opacity:.85}
+
+/* ============================== MISSION ============================== */
+.mission{background:var(--cream)}
+.mission-grid{display:grid; gap:clamp(2rem,5vw,4.5rem); align-items:center}
+@media (min-width:900px){.mission-grid{grid-template-columns:1.05fr .95fr}}
+.mission-copy .quote{margin:2rem 0 1.6rem; padding-left:1.3rem; border-left:3px solid var(--gold);
+  font-family:var(--serif); font-style:italic; font-size:clamp(1.4rem,2.6vw,1.85rem); line-height:1.35; color:var(--crimson)}
+.mission-copy p + p{margin-top:1.1rem; color:var(--ink-soft)}
+.tags{display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.8rem}
+.tag{font-size:.82rem; font-weight:700; letter-spacing:.02em; padding:.45em .95em; border-radius:999px;
+  color:var(--crimson); background:var(--paper); box-shadow:inset 0 0 0 1.4px var(--line)}
+.tag::before{content:"❖"; color:var(--gold-deep); margin-right:.5em; font-size:.8em}
+.mission-photo{position:relative}
+.mission-photo .frame{position:relative; border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow);
+  outline:1px solid rgba(154,108,28,.35); outline-offset:-1px}
+.mission-photo .frame::after{content:""; position:absolute; inset:8px; border:1.5px solid rgba(255,244,226,.5); border-radius:11px; pointer-events:none}
+.mission-photo img{width:100%; aspect-ratio:4/4.4; object-fit:cover; object-position:center 22%}
+.mission-photo .cap{position:absolute; left:16px; bottom:14px; right:16px; z-index:2; color:#fff5e6;
+  font-size:.82rem; font-weight:700; letter-spacing:.02em; text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.mission-photo .scrim{position:absolute; inset:auto 0 0 0; height:42%; z-index:1;
+  background:linear-gradient(180deg, transparent, rgba(60,16,12,.7))}
+.mission-photo .badge{position:absolute; top:-20px; right:-14px; width:84px; height:66px; color:var(--gold);
+  background:var(--cream); border-radius:50%; padding:12px; box-shadow:var(--shadow-sm); z-index:3}
+
+/* ============================== EVENTS ============================== */
+.events{background:var(--cream-deep)}
+.events-card{margin-top:2.5rem; background:var(--paper); border-radius:calc(var(--r) + 6px);
+  box-shadow:var(--shadow); overflow:hidden; outline:1px solid var(--line); outline-offset:-1px}
+.events-grid{display:grid}
+@media (min-width:980px){.events-grid{grid-template-columns:1.45fr 1fr}}
+.cal{padding:clamp(1.3rem,3vw,2.2rem)}
+.cal-top{display:flex; align-items:center; gap:.5rem; margin-bottom:1.3rem}
+.cal-title{font-family:var(--serif); font-weight:700; font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--crimson); flex:1}
+.cal-nav{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:10px;
+  color:var(--crimson); background:var(--cream); box-shadow:inset 0 0 0 1.4px var(--line); transition:background .15s}
+.cal-nav:hover{background:var(--cream-deep)}
+.cal-today{font-weight:800; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-deep); padding:.5rem .7rem; border-radius:10px}
+.cal-today:hover{background:var(--cream)}
+.cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:5px}
+.cal-wd{text-align:center; font-weight:800; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); padding-bottom:.4rem}
+.cal-pad{aspect-ratio:1/1}
+.cal-cell{position:relative; aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  border-radius:11px; color:var(--ink); font-weight:600; font-size:.95rem; min-height:38px; transition:background .15s, transform .12s, color .15s}
+.cal-cell:hover{background:var(--cream-deep)}
+.cal-cell.has{cursor:pointer; color:var(--crimson); font-weight:800; background:rgba(202,162,74,.12)}
+.cal-cell.has:hover{background:rgba(202,162,74,.24)}
+.cal-cell.today{box-shadow:inset 0 0 0 2px var(--gold)}
+.cal-cell.sel{background:var(--crimson)!important; color:#fff5e6!important}
+.cal-cell.sel .dot{box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
+.cal-dots{display:flex; gap:3px; position:absolute; bottom:6px}
+.cal-cell .dot{width:5px; height:5px; border-radius:50%; background:var(--gold)}
+
+.panel{background:var(--cream); padding:clamp(1.3rem,3vw,2rem); border-top:1px solid var(--line)}
+@media (min-width:980px){.panel{border-top:0; border-left:1px solid var(--line)}}
+.panel-head{margin-bottom:1.1rem; min-height:42px}
+.panel-head .eyebrow{margin-bottom:.4rem}
+.panel-title{font-size:1.5rem; color:var(--crimson)}
+.panel-back{font-weight:800; font-size:.78rem; letter-spacing:.04em; color:var(--gold-deep); text-transform:uppercase; margin-bottom:.5rem; display:inline-block}
+.panel-back:hover{color:var(--crimson)}
+.panel-body{display:flex; flex-direction:column; gap:.85rem}
+@media (min-width:980px){.panel-body{max-height:434px; overflow:auto; padding-right:.4rem; scrollbar-width:thin}}
+.panel-empty{color:var(--ink-soft); font-size:.98rem}
+.link{color:var(--crimson); font-weight:700; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--gold)}
+.panel-note{color:var(--ink-soft); font-size:.95rem}
+.panel-note .small{font-size:.85rem; margin-top:.5rem}
+.panel-note pre{background:var(--ink); color:#ffe9c7; padding:.6rem .8rem; border-radius:8px; font-size:.82rem; overflow:auto; margin:.5rem 0}
+.panel-note code{background:var(--cream-deep); padding:.1em .35em; border-radius:5px; font-size:.85em}
+
+.ev{display:flex; gap:1rem; padding:1rem; border-radius:14px; background:var(--paper); box-shadow:var(--shadow-sm); outline:1px solid var(--line); outline-offset:-1px}
+.ev-date{flex:none; width:58px; text-align:center; padding-top:.15rem}
+.ev-day{display:block; font-family:var(--serif); font-weight:700; font-size:1.9rem; line-height:1; color:var(--crimson)}
+.ev-mon{display:block; font-weight:800; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-deep); margin-top:3px}
+.ev-main{flex:1; min-width:0}
+.ev-tag{display:inline-flex; align-items:center; gap:.42em; font-weight:800; font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--tc,var(--gold-deep))}
+.ev-tag::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--tc,var(--gold-deep))}
+.ev-title{font-size:1.32rem; color:var(--ink); margin:.2rem 0 .25rem; line-height:1.12}
+.ev-meta{font-size:.85rem; color:var(--ink-soft); font-weight:600}
+.ev-desc{font-size:.92rem; color:var(--ink-soft); margin-top:.4rem; line-height:1.55}
+.rsvp{display:inline-flex; align-items:center; gap:.35em; margin-top:.7rem; font-weight:800; font-size:.85rem;
+  color:var(--crimson); padding:.4em .9em; border-radius:999px; background:var(--cream-deep); transition:background .15s, transform .15s}
+.rsvp:hover{background:#ecd9ad; transform:translateY(-1px)}
+.rsvp .arr{transition:transform .2s}
+.rsvp:hover .arr{transform:translateX(3px)}
+
+/* ============================== BOARD ============================== */
+.board{background:var(--cream)}
+.board-grid{display:grid; gap:1.4rem; margin-top:2.6rem; grid-template-columns:repeat(auto-fill,minmax(232px,1fr))}
+.member{background:var(--paper); border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow-sm);
+  outline:1px solid var(--line); outline-offset:-1px; transition:transform .22s ease, box-shadow .22s ease}
+.member:hover{transform:translateY(-5px); box-shadow:var(--shadow)}
+.member-photo{position:relative; aspect-ratio:4/4.6; overflow:hidden; background:var(--cream-deep)}
+.member-photo img{width:100%; height:100%; object-fit:cover; object-position:center 18%; transition:transform .4s ease}
+.member:hover .member-photo img{transform:scale(1.04)}
+.member-photo::after{content:""; position:absolute; inset:auto 0 0 0; height:3px; background:linear-gradient(90deg,var(--saffron),var(--gold),var(--leaf))}
+.member-body{padding:1.1rem 1.15rem 1.25rem}
+.member-name{font-size:1.4rem; color:var(--crimson); line-height:1.05}
+.member-role{display:block; font-weight:800; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-deep); margin:.35rem 0 .6rem}
+.member-bio{font-size:.9rem; color:var(--ink-soft); line-height:1.55}
+.member-ig{display:inline-flex; align-items:center; gap:.4em; margin-top:.85rem; font-weight:700; font-size:.84rem; color:var(--crimson)}
+.member-ig:hover{color:var(--saffron)}
+.member-ig svg{width:16px; height:16px}
+
+/* ============================== GALLERY ============================== */
+.gallery{background:var(--cream-deep)}
+.gallery-grid{margin-top:2.6rem; column-gap:1.1rem; column-count:1}
+@media(min-width:560px){.gallery-grid{column-count:2}}
+@media(min-width:980px){.gallery-grid{column-count:3}}
+.tile{display:block; width:100%; margin-bottom:1.1rem; border-radius:14px; overflow:hidden; position:relative;
+  break-inside:avoid; box-shadow:var(--shadow-sm); outline:1px solid var(--line); outline-offset:-1px;
+  background:var(--paper); transition:transform .2s ease, box-shadow .2s ease}
+.tile:hover{transform:translateY(-4px) scale(1.006); box-shadow:var(--shadow)}
+.tile img{width:100%; transition:filter .2s}
+.tile .tile-cap{position:absolute; inset:auto 0 0 0; padding:1.6rem .9rem .8rem; color:#fff5e6; font-size:.82rem; font-weight:700;
+  background:linear-gradient(180deg,transparent,rgba(50,14,12,.78)); opacity:0; transition:opacity .2s; text-align:left}
+.tile:hover .tile-cap, .tile:focus-visible .tile-cap{opacity:1}
+.tile .expand{position:absolute; top:10px; right:10px; width:30px; height:30px; border-radius:8px; background:rgba(50,14,12,.55);
+  color:#fff5e6; display:flex; align-items:center; justify-content:center; font-size:1rem; opacity:0; transition:opacity .2s}
+.tile:hover .expand,.tile:focus-visible .expand{opacity:1}
+
+/* ============================== JOIN STRIP ============================== */
+.join{position:relative; color:#fdf3e0; text-align:center; overflow:hidden;
+  background:radial-gradient(90% 120% at 50% 0%, rgba(216,162,63,.2), transparent 60%), linear-gradient(160deg,#8f1c1c,#5d1012)}
+.join-inner{position:relative; max-width:760px; margin-inline:auto; padding:clamp(3.4rem,7vw,5rem) var(--pad)}
+.join h2{font-size:clamp(2rem,4.6vw,3.1rem)}
+.join h2 .em{color:var(--gold-bright); font-style:italic; font-weight:600}
+.join p{margin:1rem auto 0; max-width:48ch; color:#f1ddc2}
+.join-cta{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:2rem}
+
+/* ============================== CONTACT ============================== */
+.contact{background:var(--cream)}
+.contact-grid{display:grid; gap:clamp(2rem,5vw,4rem); align-items:start}
+@media(min-width:820px){.contact-grid{grid-template-columns:.95fr 1.05fr}}
+.contact-list{display:flex; flex-direction:column; gap:1.1rem; margin-top:1.8rem}
+.cline{display:flex; gap:1rem; align-items:flex-start}
+.cline .ic{flex:none; width:46px; height:46px; border-radius:12px; background:var(--paper); box-shadow:inset 0 0 0 1.4px var(--line);
+  color:var(--crimson); display:flex; align-items:center; justify-content:center}
+.cline .ic svg{width:22px; height:22px}
+.cline b{display:block; font-family:var(--sans); font-weight:800; font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-deep)}
+.cline a,.cline span{color:var(--ink); font-size:1.06rem; font-weight:600}
+.cline a:hover{color:var(--saffron)}
+.contact-card{position:relative; background:var(--paper); border-radius:calc(var(--r) + 4px); padding:clamp(1.6rem,4vw,2.4rem);
+  box-shadow:var(--shadow); outline:1px solid var(--line); outline-offset:-1px}
+.contact-card .lmark{width:64px; height:50px; color:var(--gold); margin-bottom:1rem}
+.contact-card h3{font-size:1.7rem; color:var(--crimson)}
+.contact-card p{color:var(--ink-soft); margin-top:.6rem; font-size:.98rem}
+.contact-card .btn{margin-top:1.4rem}
+.contact-note{margin-top:1rem; font-size:.82rem; color:var(--ink-soft)}
+
+/* ============================== FOOTER ============================== */
+.footer{background:var(--crimson-deep); color:#f0d9bb}
+.footer-inner{max-width:var(--wrap); margin-inline:auto; padding:clamp(3rem,6vw,4.2rem) var(--pad) 2.2rem;
+  display:grid; gap:2rem; grid-template-columns:1fr}
+@media(min-width:740px){.footer-inner{grid-template-columns:1.4fr 1fr 1fr}}
+.footer .brand-text b{color:#fff4e2}
+.footer-about{max-width:34ch; font-size:.92rem; color:#e6c9a6; margin-top:1rem; line-height:1.6}
+.footer-ig{display:inline-flex; align-items:center; gap:.5em; margin-top:1.1rem; color:var(--gold-bright); font-weight:700; font-size:.9rem}
+.footer-ig:hover{color:#f5d585}
+.footer-col h4{font-family:var(--sans); font-weight:800; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:1rem}
+.footer-col a{display:block; color:#ecd2b1; font-size:.95rem; padding:.28rem 0; transition:color .15s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1)}
+.footer-bottom div{max-width:var(--wrap); margin-inline:auto; padding:1.3rem var(--pad); display:flex; flex-wrap:wrap; gap:.6rem;
+  justify-content:space-between; align-items:center; font-size:.8rem; color:#d8b890}
+.footer-bottom .heart{color:var(--saffron)}
+
+/* ============================== MODAL ============================== */
+.modal{position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center; padding:1.2rem;
+  background:rgba(40,12,10,.62); backdrop-filter:blur(3px)}
+.modal.open{display:flex; animation:fade .25s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal-card{position:relative; width:min(440px,100%); background:var(--cream); border-radius:calc(var(--r) + 6px); overflow:hidden;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.7); animation:pop .3s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{from{transform:translateY(16px) scale(.97); opacity:0}to{transform:none; opacity:1}}
+.modal-banner{background:linear-gradient(160deg,#8f1c1c,#5d1012); padding:1.6rem 1.6rem 1.3rem; color:#fdf3e0; text-align:center; position:relative}
+.modal-banner .lmark{width:52px; height:41px; color:var(--gold-bright); margin:0 auto .4rem}
+.modal-close{position:absolute; top:.7rem; right:.7rem; width:34px; height:34px; border-radius:9px; color:#fde6cb;
+  background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:1.2rem; line-height:1}
+.modal-close:hover{background:rgba(255,255,255,.22)}
+.modal-body{padding:1.5rem 1.6rem 1.7rem}
+.modal-body h3{font-size:1.7rem; color:var(--crimson); text-align:center}
+.modal-body .sub{text-align:center; color:var(--ink-soft); font-size:.95rem; margin:.5rem 0 1.3rem}
+.field{margin-bottom:.85rem}
+.field label{display:block; font-weight:700; font-size:.78rem; letter-spacing:.04em; color:var(--ink); margin-bottom:.35rem}
+.field input{width:100%; padding:.8em 1em; border-radius:11px; border:1.5px solid var(--line); background:var(--paper);
+  font-family:inherit; font-size:1rem; color:var(--ink); transition:border-color .15s}
+.field input:focus{outline:none; border-color:var(--gold)}
+.modal-body .btn{width:100%; justify-content:center; margin-top:.4rem}
+.ml-note{text-align:center; font-size:.78rem; color:var(--ink-soft); margin-top:.9rem}
+.ml-note.err{color:#b1372a; font-weight:700}
+.ml-success{text-align:center; padding:.5rem 0}
+.ml-check{width:58px; height:58px; margin:0 auto 1rem; border-radius:50%; background:var(--leaf); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:800}
+.ml-success h3{color:var(--crimson)}
+.ml-success p{color:var(--ink-soft); margin:.6rem 0 1.3rem; font-size:.96rem}
+
+/* ============================== LIGHTBOX ============================== */
+.lb{position:fixed; inset:0; z-index:320; display:none; align-items:center; justify-content:center; padding:1.4rem;
+  background:rgba(28,8,7,.92)}
+.lb.open{display:flex}
+.lb img{max-width:min(880px,94vw); max-height:84vh; border-radius:12px; box-shadow:0 30px 70px -20px rgba(0,0,0,.8)}
+.lb-cap{position:absolute; bottom:1.3rem; left:0; right:0; text-align:center; color:#f3ddbf; font-weight:700; font-size:.95rem; padding-inline:1rem}
+.lb-btn{position:absolute; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.12); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:1.6rem; transition:background .15s}
+.lb-btn:hover{background:rgba(255,255,255,.24)}
+.lb-prev{left:1.2rem; top:50%; transform:translateY(-50%)}
+.lb-next{right:1.2rem; top:50%; transform:translateY(-50%)}
+.lb-close{top:1.2rem; right:1.2rem}
+@media(max-width:560px){.lb-prev{left:.4rem}.lb-next{right:.4rem}.lb-btn{width:42px;height:42px;font-size:1.3rem}}
+
+/* ============================== REVEAL / MOTION ============================== */
+[data-reveal]{opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease}
+[data-reveal].in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms!important; transition-duration:.001ms!important}
+  [data-reveal]{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home" aria-label="SLSA home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg class="lotus" viewBox="0 0 64 50" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 7 C28 19 28 31 32 43 C36 31 36 19 32 7 Z"/>
+          <path d="M32 43 C23 36 19 24 21 13 C27 19 30 31 32 43 Z"/>
+          <path d="M32 43 C41 36 45 24 43 13 C37 19 34 31 32 43 Z"/>
+          <path d="M32 43 C18 41 9 31 7 21 C17 25 27 35 32 43 Z"/>
+          <path d="M32 43 C46 41 55 31 57 21 C47 25 37 35 32 43 Z"/>
+          <path d="M12 45 H52" stroke-opacity=".7"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>SLSA</b><span>UMN Twin Cities</span></span>
+    </a>
+    <div class="nav-spacer"></div>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#about">Mission</a>
+      <a href="#events">Events</a>
+      <a href="#board">Board</a>
+      <a href="#gallery">Photos</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-ig" href="https://www.instagram.com/umn_slsa/" target="_blank" rel="noopener" aria-label="SLSA on Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <button class="btn btn-gold btn-sm" data-open-ml>Join the list</button>
+    </nav>
+    <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- ============================== HERO ============================== -->
+<section class="hero" id="home">
+  <span class="hero-lotus" aria-hidden="true">
+    <svg class="lotus" viewBox="0 0 64 50" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M32 7 C28 19 28 31 32 43 C36 31 36 19 32 7 Z"/>
+      <path d="M32 43 C23 36 19 24 21 13 C27 19 30 31 32 43 Z"/>
+      <path d="M32 43 C41 36 45 24 43 13 C37 19 34 31 32 43 Z"/>
+      <path d="M32 43 C18 41 9 31 7 21 C17 25 27 35 32 43 Z"/>
+      <path d="M32 43 C46 41 55 31 57 21 C47 25 37 35 32 43 Z"/>
+    </svg>
+  </span>
+  <div class="hero-inner" data-reveal>
+    <p class="hero-greet">ආයුබෝවන්<small>Ayubowan — welcome</small></p>
+    <h1>Sri Lankan Students'<br><span class="em">Association</span></h1>
+    <p class="hero-tag">A home away from home at the University of Minnesota — celebrating the food, language, music and warmth of the pearl of the Indian Ocean.</p>
+    <div class="hero-cta">
+      <button class="btn btn-gold" data-open-ml>Join our mailing list</button>
+      <a class="btn btn-outline" href="#events">See upcoming events <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <p class="hero-loc">University of Minnesota · Twin Cities · Est. on Gopher ground</p>
+  </div>
+  <div class="band" role="presentation"></div>
+</section>
+
+<!-- ============================== MISSION ============================== -->
+<section class="section mission" id="about">
+  <div class="wrap">
+    <div class="mission-grid">
+      <div class="mission-copy" data-reveal>
+        <span class="eyebrow">Who we are</span>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,5vw,3.5rem);color:var(--crimson);line-height:1.04">More than a club — a little piece of home.</h2>
+        <p class="quote">We bring Sri Lanka to Minnesota — its flavours, its festivals, and the people who make it feel like home.</p>
+        <p>The Sri Lankan Students' Association exists to bring together students from Sri Lanka and friends of the island, to share our culture and support one another through the long Minnesota winters. From kottu nights to cricket watch parties, Avurudu celebrations to study breaks, we make space for every Sri Lankan on campus — and everyone curious about the island.</p>
+        <p>Whether you grew up in Colombo, Jaffna, or have never set foot on the island, there's a seat at our table. Come hungry.</p>
+        <div class="tags">
+          <span class="tag">Food nights</span>
+          <span class="tag">Cricket &amp; rugby</span>
+          <span class="tag">Avurudu &amp; Deepavali</span>
+          <span class="tag">Cultural showcases</span>
+          <span class="tag">Community &amp; care</span>
+        </div>
+      </div>
+      <div class="mission-photo" data-reveal>
+        <span class="badge" aria-hidden="true">
+          <svg class="lotus" viewBox="0 0 64 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 7 C28 19 28 31 32 43 C36 31 36 19 32 7 Z"/>
+            <path d="M32 43 C23 36 19 24 21 13 C27 19 30 31 32 43 Z"/>
+            <path d="M32 43 C41 36 45 24 43 13 C37 19 34 31 32 43 Z"/>
+            <path d="M32 43 C18 41 9 31 7 21 C17 25 27 35 32 43 Z"/>
+            <path d="M32 43 C46 41 55 31 57 21 C47 25 37 35 32 43 Z"/>
+            <path d="M12 45 H52" stroke-opacity=".7"/>
+          </svg>
+        </span>
+        <div class="frame">
+          <img src="media/board.jpg" alt="The SLSA board in traditional Sri Lankan dress on the steps of a University of Minnesota building" loading="lazy" decoding="async">
+          <div class="scrim"></div>
+          <p class="cap">The students behind SLSA — in traditional dress on campus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band band--ink" role="presentation"></div>
+
+<!-- ============================== EVENTS ============================== -->
+<section class="section events" id="events">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Mark your calendar</span>
+      <h2>Upcoming events</h2>
+      <p class="lead">Tap a highlighted date to see what's happening, or browse what's coming up next. RSVP where you see the button so we can plan the food.</p>
+    </div>
+    <div class="events-card" data-reveal>
+      <div class="events-grid">
+        <div class="cal">
+          <div class="cal-top">
+            <button class="cal-nav" id="calPrev" aria-label="Previous month">‹</button>
+            <h3 class="cal-title" id="calTitle">Loading…</h3>
+            <button class="cal-nav" id="calNext" aria-label="Next month">›</button>
+            <button class="cal-today" id="calToday">Today</button>
+          </div>
+          <div class="cal-grid" id="calGrid" role="grid" aria-label="Events calendar"></div>
+        </div>
+        <aside class="panel" aria-live="polite">
+          <div class="panel-head" id="panelHead"></div>
+          <div class="panel-body" id="panelBody"></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BOARD ============================== -->
+<section class="section board" id="board">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">The people</span>
+      <h2>Meet the board</h2>
+      <p class="lead">The students who plan the events, cook the food, and keep the community running. Say hi — they don't bite (much).</p>
+    </div>
+    <div class="board-grid">
+
+      <article class="member" data-reveal>
+        <div class="member-photo"><img src="media/gayal.jpg" alt="Gayal Kuruppu" loading="lazy" decoding="async"></div>
+        <div class="member-body">
+          <h3 class="member-name">Gayal Kuruppu</h3>
+          <span class="member-role">Cultural Affairs Director</span>
+          <p class="member-bio">Third-year CS PhD student working on AI for biosignals. Grew up in Sri Lanka, lived in the UAE, and could eat ten egg rolls in one sitting. Big rugby and cricket fan.</p>
+          <a class="member-ig" href="https://www.instagram.com/gayalkuruppu/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@gayalkuruppu</a>
+        </div>
+      </article>
+
+      <article class="member" data-reveal>
+        <div class="member-photo"><img src="media/mindhula.jpg" alt="Mindhula De Soysa" loading="lazy" decoding="async"></div>
+        <div class="member-body">
+          <h3 class="member-name">Mindhula De Soysa</h3>
+          <span class="member-role">Events Director</span>
+          <p class="member-bio">Freshman in Microbiology (pre-dental), born in Sri Lanka. Records music on his guitar in his free time and lives for kiribath with lunu miris and salmon curry.</p>
+          <a class="member-ig" href="https://www.instagram.com/mindhuladesoysa/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@mindhuladesoysa</a>
+        </div>
+      </article>
+
+      <article class="member" data-reveal>
+        <div class="member-photo"><img src="media/shanaya.jpg" alt="Shanaya Jayasuriya" loading="lazy" decoding="async"></div>
+        <div class="member-body">
+          <h3 class="member-name">Shanaya Jayasuriya</h3>
+          <span class="member-role">Community Engagement Director</span>
+          <p class="member-bio">Sophomore in Medical Laboratory Sciences (pre-med). Speaks four languages including fluent Sinhala, loves F1 and music. Thalana battu curry is her go-to.</p>
+          <a class="member-ig" href="https://www.instagram.com/shanayashavindi/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@shanayashavindi</a>
+        </div>
+      </article>
+
+      <article class="member" data-reveal>
+        <div class="member-photo"><img src="media/cade.jpg" alt="Cade Bunnell" loading="lazy" decoding="async"></div>
+        <div class="member-body">
+          <h3 class="member-name">Cade Bunnell</h3>
+          <span class="member-role">PR Director</span>
+          <p class="member-bio">Junior in Neuroscience (pre-med) from Burnsville, MN. Vikings and Timberwolves diehard. Will take egg hoppers and chicken kottu over anything else.</p>
+          <a class="member-ig" href="https://www.instagram.com/cadebunnell/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@cadebunnell</a>
+        </div>
+      </article>
+
+      <article class="member" data-reveal>
+        <div class="member-photo"><img src="media/ravindu.jpg" alt="Ravindu Ranasinghe" loading="lazy" decoding="async"></div>
+        <div class="member-body">
+          <h3 class="member-name">Ravindu Ranasinghe</h3>
+          <span class="member-role">Design Director</span>
+          <p class="member-bio">Computer Science major and 100% Sri Lankan — he designed the illustrated board posters in our gallery. Lives for kottu and cashew curry.</p>
+          <a class="member-ig" href="https://www.instagram.com/raaavindu/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@raaavindu</a>
+        </div>
+      </article>
+
+      <article class="member" data-reveal>
+        <div class="member-photo"><img src="media/milan.jpg" alt="Milan Mallawaaratchy" loading="lazy" decoding="async"></div>
+        <div class="member-body">
+          <h3 class="member-name">Milan Mallawaaratchy</h3>
+          <span class="member-role">Treasurer &amp; Grad Student Rep</span>
+          <p class="member-bio">Master's student in Urban &amp; Regional Planning. Builds Legos, learns languages, and orders the hot butter cuttlefish and lamprais every single time.</p>
+          <a class="member-ig" href="https://www.instagram.com/milanmallawaaratchy/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@milanmallawaaratchy</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== GALLERY ============================== -->
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Photos</span>
+      <h2>Our community, in colour</h2>
+      <p class="lead">A look at our people and the island we love. The board portraits below were illustrated by our Design Director, Ravindu Ranasinghe — tap any image to view it larger.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid" data-reveal></div>
+  </div>
+</section>
+</main>
+
+<!-- ============================== JOIN STRIP ============================== -->
+<section class="join" id="join">
+  <div class="band" role="presentation"></div>
+  <div class="join-inner" data-reveal>
+    <h2>Never miss a <span class="em">kottu night.</span></h2>
+    <p>Join our mailing list and we'll send you a heads-up before every event — food nights, cricket watch parties, Avurudu, and everything in between.</p>
+    <div class="join-cta">
+      <button class="btn btn-gold" data-open-ml>Join our mailing list</button>
+      <a class="btn btn-outline" href="https://www.instagram.com/umn_slsa/" target="_blank" rel="noopener">Follow @umn_slsa <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="band" role="presentation"></div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div data-reveal>
+        <span class="eyebrow">Say hello</span>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,5vw,3.5rem);color:var(--crimson);line-height:1.04">Get in touch</h2>
+        <p class="lead" style="margin-top:1rem">Questions, ideas, or want to collaborate on an event? Reach out — we'd love to hear from you.</p>
+        <div class="contact-list">
+          <div class="cline">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></span>
+            <div><b>Instagram</b><a href="https://www.instagram.com/umn_slsa/" target="_blank" rel="noopener">@umn_slsa</a></div>
+          </div>
+          <div class="cline">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+            <div><b>Email</b><a href="mailto:slsa@umn.edu">slsa@umn.edu</a></div>
+          </div>
+          <div class="cline">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><b>Find us</b><span>University of Minnesota, Twin Cities</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card" data-reveal>
+        <span class="lmark" aria-hidden="true">
+          <svg class="lotus" viewBox="0 0 64 50" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 7 C28 19 28 31 32 43 C36 31 36 19 32 7 Z"/>
+            <path d="M32 43 C23 36 19 24 21 13 C27 19 30 31 32 43 Z"/>
+            <path d="M32 43 C41 36 45 24 43 13 C37 19 34 31 32 43 Z"/>
+            <path d="M32 43 C18 41 9 31 7 21 C17 25 27 35 32 43 Z"/>
+            <path d="M32 43 C46 41 55 31 57 21 C47 25 37 35 32 43 Z"/>
+            <path d="M12 45 H52" stroke-opacity=".7"/>
+          </svg>
+        </span>
+        <h3>New to campus?</h3>
+        <p>The easiest way to get involved is to join the mailing list and come to your first event. No commitment, no membership fee — just show up and meet people.</p>
+        <button class="btn btn-crimson" data-open-ml>Join our mailing list</button>
+        <p class="contact-note">Already follow us on Instagram? That works too — we post every event there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="brand" href="#home" aria-label="SLSA home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="lotus" viewBox="0 0 64 50" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 7 C28 19 28 31 32 43 C36 31 36 19 32 7 Z"/>
+            <path d="M32 43 C23 36 19 24 21 13 C27 19 30 31 32 43 Z"/>
+            <path d="M32 43 C41 36 45 24 43 13 C37 19 34 31 32 43 Z"/>
+            <path d="M32 43 C18 41 9 31 7 21 C17 25 27 35 32 43 Z"/>
+            <path d="M32 43 C46 41 55 31 57 21 C47 25 37 35 32 43 Z"/>
+            <path d="M12 45 H52" stroke-opacity=".7"/>
+          </svg>
+        </span>
+        <span class="brand-text"><b>SLSA</b><span>UMN Twin Cities</span></span>
+      </a>
+      <p class="footer-about">The Sri Lankan Students' Association at the University of Minnesota — celebrating the pearl of the Indian Ocean, one event at a time.</p>
+      <a class="footer-ig" href="https://www.instagram.com/umn_slsa/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>@umn_slsa</a>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#about">Mission</a>
+      <a href="#events">Events</a>
+      <a href="#board">Board</a>
+      <a href="#gallery">Photos</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get involved</h4>
+      <a href="#" data-open-ml>Join the mailing list</a>
+      <a href="https://www.instagram.com/umn_slsa/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a href="mailto:slsa@umn.edu">Email us</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><div>
+    <span>© <span id="year"></span> Sri Lankan Students' Association · University of Minnesota</span>
+    <span>Made with <span class="heart">♥</span> in Minneapolis</span>
+  </div></div>
+</footer>
+
+<!-- ============================== MAILING LIST MODAL ============================== -->
+<div class="modal" id="mlModal" role="dialog" aria-modal="true" aria-labelledby="mlHeading">
+  <div class="modal-card">
+    <div class="modal-banner">
+      <span class="lmark" aria-hidden="true">
+        <svg class="lotus" viewBox="0 0 64 50" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 7 C28 19 28 31 32 43 C36 31 36 19 32 7 Z"/>
+          <path d="M32 43 C23 36 19 24 21 13 C27 19 30 31 32 43 Z"/>
+          <path d="M32 43 C41 36 45 24 43 13 C37 19 34 31 32 43 Z"/>
+          <path d="M32 43 C18 41 9 31 7 21 C17 25 27 35 32 43 Z"/>
+          <path d="M32 43 C46 41 55 31 57 21 C47 25 37 35 32 43 Z"/>
+        </svg>
+      </span>
+      <p style="font-family:var(--sinhala);color:var(--gold-bright);font-size:1.2rem;line-height:1">ආයුබෝවන්</p>
+      <button class="modal-close" data-close-ml aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="mlBody">
+      <h3 id="mlHeading">Join our mailing list</h3>
+      <p class="sub">Get a friendly heads-up before every SLSA event. No spam — just food, cricket, and culture.</p>
+      <form id="mlForm" novalidate>
+        <div class="field">
+          <label for="mlName">Name <span style="color:var(--ink-soft);font-weight:600">(optional)</span></label>
+          <input type="text" id="mlName" name="name" autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="mlEmail">Email</label>
+          <input type="email" id="mlEmail" name="email" autocomplete="email" placeholder="you@umn.edu" required>
+        </div>
+        <button class="btn btn-crimson" type="submit">Join the list</button>
+        <p class="ml-note" id="mlNote">We'll only use this to tell you about events.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== LIGHTBOX ============================== -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next">›</button>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
+<script>
+/* ===================== CONFIG — edit these ===================== */
+const CONFIG = {
+  // The calendar reads this CSV. Keep it in /data, OR point it at a published
+  // Google Sheet: in Sheets do File → Share → Publish to web → (your sheet) → CSV,
+  // then paste that link here instead of 'data/events.csv'.
+  csvUrl: 'data/events.csv',
+  instagram: 'https://www.instagram.com/umn_slsa/',
+  mailing: {
+    // OPTION A (recommended): collect emails right on the page.
+    // Make a free form at formspree.io, then paste its endpoint here, e.g.
+    // 'https://formspree.io/f/abcdwxyz'. Leave blank to use Option B instead.
+    formspree: '',
+    // OPTION B (no setup): if formspree is blank, the Join button opens this
+    // Google Form in a new tab. Replace with your real form link.
+    googleForm: 'https://forms.gle/your-mailing-list-link'
+  }
+};
+
+/* ===================== HELPERS ===================== */
+const $ = (s, r=document) => r.querySelector(s);
+const pad = n => String(n).padStart(2,'0');
+const dateKey = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const keyToDate = k => { const [y,m,d] = k.split('-').map(Number); return new Date(y, m-1, d); };
+const startOfToday = () => { const t = new Date(); t.setHours(0,0,0,0); return t; };
+const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const WD = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const CAT = {
+  social:  {label:'Social',   c:'var(--gold-deep)'},
+  food:    {label:'Food',     c:'var(--saffron)'},
+  cultural:{label:'Cultural', c:'var(--crimson)'},
+  sports:  {label:'Sports',   c:'var(--leaf)'},
+  meeting: {label:'Meeting',  c:'var(--brass)'}
+};
+const catOf = name => CAT[(name||'').toLowerCase().trim()] || {label:(name||'Event'), c:'var(--gold-deep)'};
+
+/* ===================== CSV PARSER (handles quotes + commas) ===================== */
+function parseCSV(text){
+  const rows=[]; let row=[], field='', inQ=false;
+  text = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(inQ){
+      if(c==='"'){ if(text[i+1]==='"'){ field+='"'; i++; } else { inQ=false; } }
+      else field+=c;
+    } else {
+      if(c==='"') inQ=true;
+      else if(c===',') { row.push(field); field=''; }
+      else if(c==='\n'){ row.push(field); rows.push(row); row=[]; field=''; }
+      else field+=c;
+    }
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  return rows;
+}
+function rowsToEvents(rows){
+  if(!rows.length) return [];
+  const header = rows[0].map(h => h.trim().toLowerCase());
+  const out=[];
+  for(let i=1;i<rows.length;i++){
+    const r=rows[i];
+    if(r.length===1 && r[0].trim()==='') continue;
+    const o={}; header.forEach((h,idx)=> o[h]=(r[idx]!=null?r[idx]:'').trim());
+    if(!o.date) continue;
+    const [y,m,d]=o.date.split('-').map(Number);
+    if(!y||!m||!d) continue;
+    const dt=new Date(y, m-1, d);
+    out.push({ date:dt, key:dateKey(dt), title:o.title||'Untitled event', time:o.time||'',
+      location:o.location||'', category:o.category||'', description:o.description||'',
+      rsvp:o.rsvp||'', image:o.image||'' });
+  }
+  out.sort((a,b)=> a.date - b.date);
+  return out;
+}
+
+/* ===================== CALENDAR + PANEL ===================== */
+let events=[], byKey=new Map();
+let view=new Date(); view.setDate(1);
+let selectedKey=null;
+
+const calTitle=$('#calTitle'), calGrid=$('#calGrid');
+const panelHead=$('#panelHead'), panelBody=$('#panelBody');
+
+const upcoming = () => { const t=startOfToday(); return events.filter(e=> e.date>=t); };
+
+function renderCalendar(){
+  calTitle.textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
+  let html = WD.map(w=>`<div class="cal-wd">${w}</div>`).join('');
+  const y=view.getFullYear(), m=view.getMonth();
+  const startDow=new Date(y,m,1).getDay();
+  const days=new Date(y,m+1,0).getDate();
+  const todayK=dateKey(startOfToday());
+  for(let i=0;i<startDow;i++) html+=`<div class="cal-pad"></div>`;
+  for(let d=1; d<=days; d++){
+    const k=`${y}-${pad(m+1)}-${pad(d)}`;
+    const evs=byKey.get(k)||[];
+    const has=evs.length>0;
+    const cls=['cal-cell']; if(has)cls.push('has'); if(k===todayK)cls.push('today'); if(k===selectedKey)cls.push('sel');
+    const dots=evs.slice(0,3).map(e=>`<span class="dot" style="background:${catOf(e.category).c}"></span>`).join('');
+    html+=`<button class="${cls.join(' ')}" data-key="${k}" role="gridcell"
+      aria-label="${d} ${MONTHS[m]}${has?', '+evs.length+' event'+(evs.length>1?'s':''):''}">
+      <span class="cal-num">${d}</span>${has?`<span class="cal-dots">${dots}</span>`:''}</button>`;
+  }
+  calGrid.innerHTML=html;
+}
+
+function eventCard(e){
+  const cat=catOf(e.category), d=e.date;
+  const meta=[e.time, e.location].filter(Boolean).join('  ·  ');
+  const rsvp = (e.rsvp && /^https?:\/\//.test(e.rsvp))
+    ? `<a class="rsvp" href="${encodeURI(e.rsvp)}" target="_blank" rel="noopener">RSVP <span class="arr" aria-hidden="true">→</span></a>` : '';
+  const img = (e.image && /^(https?:\/\/|media\/|\.\/|\/)/.test(e.image))
+    ? `<img src="${encodeURI(e.image)}" alt="" loading="lazy" style="width:100%;border-radius:10px;margin-bottom:.6rem;display:block">` : '';
+  return `<article class="ev">
+    <div class="ev-date"><span class="ev-day">${d.getDate()}</span><span class="ev-mon">${d.toLocaleDateString('en-US',{month:'short'})}</span></div>
+    <div class="ev-main">${img}
+      <span class="ev-tag" style="--tc:${cat.c}">${escapeHtml(cat.label)}</span>
+      <h4 class="ev-title">${escapeHtml(e.title)}</h4>
+      ${meta?`<p class="ev-meta">${escapeHtml(meta)}</p>`:''}
+      ${e.description?`<p class="ev-desc">${escapeHtml(e.description)}</p>`:''}
+      ${rsvp}
+    </div></article>`;
+}
+
+function renderPanel(key){
+  selectedKey = key;
+  if(key){
+    const evs=(byKey.get(key)||[]);
+    const d = evs.length ? evs[0].date : keyToDate(key);
+    const label = d.toLocaleDateString('en-US',{weekday:'long', month:'long', day:'numeric', year:'numeric'});
+    panelHead.innerHTML = `<button class="panel-back" data-back>← Back to upcoming</button><h3 class="panel-title">${label}</h3>`;
+    panelBody.innerHTML = evs.length ? evs.map(eventCard).join('')
+      : `<p class="panel-empty">Nothing planned for this day. <button class="link" data-back>See what's coming up →</button></p>`;
+  } else {
+    const up=upcoming().slice(0,8);
+    panelHead.innerHTML = `<span class="eyebrow">What's next</span><h3 class="panel-title">Upcoming events</h3>`;
+    panelBody.innerHTML = up.length ? up.map(eventCard).join('')
+      : `<p class="panel-empty">No upcoming events on the calendar right now — check back soon, or follow us on <a class="link" href="${CONFIG.instagram}" target="_blank" rel="noopener">Instagram</a>.</p>`;
+  }
+  renderCalendar();
+  document.querySelectorAll('[data-back]').forEach(b=> b.addEventListener('click', ()=> renderPanel(null)));
+}
+
+calGrid.addEventListener('click', e=>{
+  const cell=e.target.closest('.cal-cell'); if(!cell) return;
+  renderPanel(cell.dataset.key);
+});
+$('#calPrev').addEventListener('click', ()=>{ view.setMonth(view.getMonth()-1); renderCalendar(); });
+$('#calNext').addEventListener('click', ()=>{ view.setMonth(view.getMonth()+1); renderCalendar(); });
+$('#calToday').addEventListener('click', ()=>{ const t=new Date(); view=new Date(t.getFullYear(),t.getMonth(),1); renderPanel(dateKey(startOfToday())); });
+
+async function loadEvents(){
+  try{
+    const res=await fetch(CONFIG.csvUrl, {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    events=rowsToEvents(parseCSV(await res.text()));
+    byKey=new Map();
+    events.forEach(e=>{ if(!byKey.has(e.key)) byKey.set(e.key,[]); byKey.get(e.key).push(e); });
+    const up=upcoming();
+    const base=up.length ? up[0].date : new Date();
+    view=new Date(base.getFullYear(), base.getMonth(), 1);
+    renderPanel(null);
+  }catch(err){
+    console.warn('Could not load events:', err);
+    renderCalendar();
+    panelHead.innerHTML=`<span class="eyebrow">What's next</span><h3 class="panel-title">Upcoming events</h3>`;
+    panelBody.innerHTML=`<div class="panel-note"><p>We couldn't load the events list.</p>
+      <p class="small">If you opened this page by double-clicking the file, browsers block reading <code>data/events.csv</code> directly. View it on GitHub Pages, or run a quick local server:</p>
+      <pre>python -m http.server</pre>
+      <p class="small">then open <code>http://localhost:8000</code> in your browser.</p></div>`;
+  }
+}
+
+/* ===================== GALLERY + LIGHTBOX ===================== */
+// Add more photos here anytime (e.g. {src:'media/food-night.jpg', cap:'Food Night 2026'})
+const GALLERY = [
+  {src:'media/board.jpg',        cap:'The SLSA board on campus'},
+  {src:'media/card-gayal.jpg',   cap:'Gayal Kuruppu · Cultural Affairs Director'},
+  {src:'media/card-mindhula.jpg',cap:'Mindhula De Soysa · Events Director'},
+  {src:'media/card-shanaya.jpg', cap:'Shanaya Jayasuriya · Community Engagement Director'},
+  {src:'media/card-cade.jpg',    cap:'Cade Bunnell · PR Director'},
+  {src:'media/card-ravindu.jpg', cap:'Ravindu Ranasinghe · Design Director'},
+  {src:'media/card-milan.jpg',   cap:'Milan Mallawaaratchy · Treasurer'}
+];
+const galleryGrid=$('#galleryGrid');
+galleryGrid.innerHTML = GALLERY.map((g,i)=>
+  `<button class="tile" data-i="${i}" aria-label="View: ${escapeHtml(g.cap)}">
+     <img src="${g.src}" alt="${escapeHtml(g.cap)}" loading="lazy" decoding="async">
+     <span class="expand" aria-hidden="true">⤢</span>
+     <span class="tile-cap">${escapeHtml(g.cap)}</span>
+   </button>`).join('');
+
+const lb=$('#lb'), lbImg=$('#lbImg'), lbCap=$('#lbCap');
+let lbIndex=0;
+function openLb(i){ lbIndex=(i+GALLERY.length)%GALLERY.length; const g=GALLERY[lbIndex];
+  lbImg.src=g.src; lbImg.alt=g.cap; lbCap.textContent=g.cap; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+galleryGrid.addEventListener('click', e=>{ const t=e.target.closest('.tile'); if(t) openLb(+t.dataset.i); });
+$('#lbClose').addEventListener('click', closeLb);
+$('#lbPrev').addEventListener('click', ()=> openLb(lbIndex-1));
+$('#lbNext').addEventListener('click', ()=> openLb(lbIndex+1));
+lb.addEventListener('click', e=>{ if(e.target===lb) closeLb(); });
+
+/* ===================== MAILING LIST MODAL ===================== */
+const modal=$('#mlModal');
+let lastFocus=null;
+function openModal(){ lastFocus=document.activeElement; modal.classList.add('open'); document.body.style.overflow='hidden';
+  setTimeout(()=> $('#mlEmail')?.focus(), 60); try{ localStorage.setItem('slsa_ml_seen','1'); }catch(_){} }
+function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+document.querySelectorAll('[data-open-ml]').forEach(b=> b.addEventListener('click', e=>{ e.preventDefault(); openModal(); }));
+function bindClose(){ document.querySelectorAll('[data-close-ml]').forEach(b=> b.addEventListener('click', closeModal)); }
+bindClose();
+modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+
+const form=$('#mlForm');
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  const email=$('#mlEmail').value.trim(), name=$('#mlName').value.trim();
+  const note=$('#mlNote');
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    note.textContent='Please enter a valid email address.'; note.classList.add('err'); return;
+  }
+  const cfg=CONFIG.mailing;
+  if(cfg.formspree){
+    try{
+      const fd=new FormData(); fd.append('email',email); if(name) fd.append('name',name);
+      const r=await fetch(cfg.formspree, {method:'POST', body:fd, headers:{'Accept':'application/json'}});
+      r.ok ? showSuccess() : showErr();
+    }catch(_){ showErr(); }
+  } else if(cfg.googleForm && !/your-mailing-list-link/.test(cfg.googleForm)){
+    window.open(cfg.googleForm,'_blank','noopener'); showSuccess("We've opened the sign-up form in a new tab — see you at the next event!");
+  } else {
+    // No backend wired yet — still confirm to the visitor; connect Formspree or a Google Form to capture emails.
+    console.info('Mailing list signup (not yet connected to a backend):', {name, email});
+    showSuccess();
+  }
+});
+function showSuccess(msg){
+  $('#mlBody').innerHTML = `<div class="ml-success"><div class="ml-check" aria-hidden="true">✓</div>
+    <h3>You're on the list!</h3><p>${msg||"Thanks for joining — we'll be in touch before the next event."}</p>
+    <button class="btn btn-ghost" data-close-ml>Close</button></div>`;
+  bindClose();
+}
+function showErr(){ const n=$('#mlNote'); if(n){ n.textContent='Something went wrong — please try again, or email us instead.'; n.classList.add('err'); } }
+
+/* ===================== ESC handling (modal + lightbox) ===================== */
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ if(modal.classList.contains('open')) closeModal(); if(lb.classList.contains('open')) closeLb(); }
+  if(lb.classList.contains('open')){ if(e.key==='ArrowLeft') openLb(lbIndex-1); if(e.key==='ArrowRight') openLb(lbIndex+1); }
+});
+
+/* ===================== NAV (scroll + mobile menu) ===================== */
+const nav=$('#nav'), burger=$('#burger'), navLinks=$('#navLinks');
+const onScroll=()=> nav.classList.toggle('scrolled', window.scrollY>40);
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+burger.addEventListener('click', ()=>{ const open=nav.classList.toggle('menu-open'); burger.setAttribute('aria-expanded', open); });
+navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ nav.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); }));
+
+/* ===================== SCROLL REVEAL ===================== */
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce && 'IntersectionObserver' in window){
+  const io=new IntersectionObserver((ents)=>{ ents.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(el=> io.observe(el));
+} else {
+  document.querySelectorAll('[data-reveal]').forEach(el=> el.classList.add('in'));
+}
+
+/* ===================== INIT ===================== */
+$('#year').textContent=new Date().getFullYear();
+loadEvents();
+try{ if(!localStorage.getItem('slsa_ml_seen')){ setTimeout(()=>{ if(!modal.classList.contains('open')) openModal(); }, 7000); } }catch(_){}
+</script>
+</body>
+</html>
